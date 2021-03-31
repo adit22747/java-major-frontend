@@ -1,0 +1,14 @@
+<form [formGroup]="verifyForm">
+    <div class="row mb-4">
+        <div class="col-lg-8 ">
+            <input type="text" formControlName="otp" class="form-control" placeholder="Enter OTP">
+        </div>
+        <div class="col-lg-2">
+            <button type="submit" value="verify" (click)="verify()" class="btn myBtn">Verify</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="submit" value="resendotp" (click)="resendotp()" class="btn myBtn">Resend</button>
+        </div>
+    </div>
+
+</form>

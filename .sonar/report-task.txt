@@ -1,0 +1,5 @@
+projectKey=java-major-g6-front
+serverUrl=http://172.27.12.78
+dashboardUrl=http://172.27.12.78/dashboard/index/java-major-g6-front
+ceTaskId=AXiDfl7OirXW5IlAPXFf
+ceTaskUrl=http://172.27.12.78/api/ce/task?id=AXiDfl7OirXW5IlAPXFf

@@ -1,0 +1,21 @@
+$sidebar-theme: #edeff0;
+$theme-color: #3e416d;
+$font-color: #29303b;
+$font-faimily: gotham-rounded,helvetica neue,helvetica !important;
+.cardsDashboard{
+    text-decoration: none;
+    background-color: white;
+  
+    border-radius: 5px;
+    color: $font-color;
+    cursor: pointer;
+}
+.myFonts{
+    font-family: $font-faimily;
+}
+.myCard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+.headingFonts{
+    color:$theme-color;
+}

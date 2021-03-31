@@ -1,0 +1,59 @@
+<div class="container myFonts my-5">
+    <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                            <div class="row">
+                                            <div class="col-lg-6 headingFonts">
+                                                    <h2>New Video</h2>
+                                            </div>
+                                    </div>
+                                    <div class=" px-5 py-5 formDiv">
+                                    <form [formGroup]="videoForm" enctype="multipart/form-data">
+                                    <div class="row">
+                                            <div class="col-lg-2" >Select Course:</div>
+                                            <div class="col-lg-8"><select formControlName="courseId" class="form-select" (change)="setVideos($event)"  [ngClass]="{'is-invalid':videoForm.controls.courseId.touched && videoForm.controls.courseId.errors}">
+                                                                     <option *ngFor="let c of courses ; let Index = index" [ngValue]="c.courseId" (click)="selectedCourse(c.courseId,Index)" value={{Index}} id="Option">{{ c.courseName }}</option>
+                                                                </select><div>
+                                                                            <div *ngIf="videoForm.controls.courseId.touched && videoForm.controls.courseId.errors">
+                                                                              <div *ngIf="videoForm.controls.courseId.errors.required">CourseName required</div>
+                                                                            </div></div></div>
+                                     </div><br>
+                                     <div class="row">
+                                            <div class="col-lg-2" >Select Position:</div>
+                                            <div class="col-lg-8"><select formControlName="position" class="form-select"   [ngClass]="{'is-invalid':videoForm.controls.position.touched && videoForm.controls.position.errors}">
+                                                                     <option *ngFor="let v of number ; let Index = index" [ngValue]="v" (click)="setPosition(v.courseId)">{{ v+1 }}</option>
+                                                                     <option value="last">At Last</option>
+                                                                </select><div>
+                                                                            <div *ngIf="videoForm.controls.courseId.touched && videoForm.controls.courseId.errors">
+                                                                              <div *ngIf="videoForm.controls.courseId.errors.required"> Required</div>
+                                                                            </div></div></div>
+                                     </div><br>
+                                    <div class="row">
+                                            <div class="col-lg-2">Video Name:</div>
+                                            <div class="col-lg-8"><input type="text" formControlName="videoName" class="form-control">
+                                                    <div *ngIf="videoForm.controls.videoName?.invalid && videoForm.controls.videoName?.touched" [ngStyle]="{'color' : 'red'}"required>Please enter valid Video-Name</div></div>
+                                    </div><br>
+                                    <div class="row">
+                                            <div class="col-lg-2">Video Description:</div>
+                                            <div class="col-lg-8"><textarea rows="5" cols="10" formControlName="videoDesc" class="form-control"></textarea>
+                                                    <div *ngIf="videoForm.controls.videoDesc?.invalid && videoForm.controls.videoDesc?.touched" [ngStyle]="{'color' : 'red'}"required>Please enter 10 characters at minimum</div></div>
+                                    </div>  <br>
+                                    <div class="row">
+                                            <div class="col-lg-2">Video Path:</div>
+                                            <div class="col-lg-8"><input type="file"  multiple accept="video/*" formControlName="videoPath"  class="form-control" (change)="readUrl($event)"></div>
+                                            <div class="row mt-3">
+                                                    <div class="col-lg-2"></div>
+                                                    <div class="col-lg-6"><div class="videoPreview"><video [src]="url" class="img-fluid" alt="none selected" controls></video></div>
+                                                    <div *ngIf="videoForm.controls.videoDesc?.invalid && videoForm.controls.videoDesc?.touched" [ngStyle]="{'color' : 'red'}"required>Please select valid video file</div>
+                                            </div>
+                                            </div>
+                                    </div><br>
+                                    <div class="row ">
+                                            <div class="col-lg-2"></div>
+                                            <div class="col-lg-8 "><input type="submit" value="Add video" class="btn myBtn" (click) ="addVideo()" [disabled]= "!videoForm.valid"></div>
+                                    </div>
+                                    </form>
+                                    </div>
+            </div>
+    </div>
+</div>

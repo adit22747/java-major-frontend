@@ -1,0 +1,99 @@
+.user-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-align: center;
+}
+$theme-color: #3E416D;
+$font-color: #29303B;
+$sidebar-theme: #edeff0;
+$font-faimily: gotham-rounded,helvetica neue,helvetica !important;
+.header-color{
+    background-color: $sidebar-theme;
+    height: 20vh;
+}
+.welcome-header{
+    padding-top: 10vh;
+    color: $theme-color;
+}
+.myitems{
+    text-align: center;
+    text-decoration: none;
+    color: darken($theme-color, 20);
+}
+.myitems:hover{
+    color: $theme-color;
+}    
+.myLink{
+    text-align: center;
+    height: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.myLink:hover{
+    border-bottom: 4px solid $theme-color;
+}
+.myBackground{
+    background-color: $sidebar-theme;
+}
+.myFonts{
+    font-family: $font-faimily;
+}
+.identifyLinks{
+    background-color: lighten($sidebar-theme, 10);
+}
+.headingFonts{
+    color: $theme-color;
+}
+.categorycards{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+.coursesCards{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+.coursesCards:hover{
+    transform: scale(1.0);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 30px;
+    width: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: 100%, 100%;
+    border-radius: 50%;
+}  
+.myBtn{
+    border: 1px solid $theme-color;
+    color: $theme-color;
+  }
+  .myBtn:hover{
+    background-color: $theme-color;
+    color: white;
+  }
+  .myCourseBtn{
+    background-color: $theme-color;
+    color: white;
+    border: 1px  $theme-color;
+  }
+.box{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    color: $font-color;
+}
+.reg-btn{
+    background-color: $theme-color;
+    color: white;
+}
+.reg-btn:hover{
+    background-color: lighten($theme-color, 20);
+}
+.catImg{
+    height: 150px;
+    width: 150px;
+}
+.courseImg{
+    margin-left: 10%;
+    height: 150px;
+    width: 225px;
+}

@@ -1,0 +1,162 @@
+<div class="container-fluid header-color myFonts">
+    <div class="container">
+        <div class="row welcome-header">
+            <div class="col-lg-8">
+                <span class=" h2">
+                    <i *ngIf="activated" class="fas fa-user-check fa-sm"></i>
+                    Welcome, {{username | titlecase}}
+                </span>
+            </div>
+            <div class="col-lg-4" *ngIf="!isActivated">
+                <div *ngIf="!activated">
+                    <button (click)="sendotp()" class="float-end btn reg-btn">Verify Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!isActivated" class="col-lg-12">
+    <div class="card-body box text-center">You need to activate your account first</div>
+</div>
+<div *ngIf="isActivated">
+    <div class="container box mt-5">
+        <div class="card-body">
+            <p class=" display-6 lead ">About You</p>
+            <p class="lead"><em>Let the e-learning community know about you.</em></p>
+            <hr>
+        </div>
+        <div class="card-body">
+            <div>
+                <form [formGroup]="profileForm">
+                    <p [ngStyle]="{color: 'red'}">Field in (*) are mandatory</p>
+                    <div class="row">
+                        <div class="col-lg-3 my-3">
+                            *Enter Full Name :
+                        </div>
+                        <div class="form-group col-lg-9 my-3">
+                            <input type="text" class="form-control" formControlName="fullName">
+                            <div *ngIf="profileForm.controls.fullName?.invalid && profileForm.controls.fullName?.touched"
+                                [ngStyle]="{color: 'red'}"> Please enter a valid name</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 my-3">
+                            *Birthday:
+                        </div>
+                        <div class="form-group col-lg-9 my-3">
+                            <input type="date" class="form-control" formControlName="birthdate">
+                            <div *ngIf="profileForm.controls.birthdate?.invalid && profileForm.controls.birthdate?.touched"
+                                [ngStyle]="{color: 'red'}">Please choose a date of birth </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 my-3">
+                            *Select Gender:
+                        </div>
+                        <div class="form-group col-lg-9 my-3">
+                            <input type="radio" class="form-check-input mx-2" formControlName="gender"
+                                value="Male"><label class="form-check-label">Male</label>
+                            <input type="radio" class="form-check-input mx-2" formControlName="gender"
+                                value="Female"><label class="form-check-label">Female</label>
+                            <div *ngIf="profileForm.controls.gender?.invalid && profileForm.controls.gender?.touched"
+                                [ngStyle]="{color: 'red'}">Please choose a gender</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 my-3">
+                            Phone Number:
+                        </div>
+                        <div class="form-group col-lg-9 my-3">
+                            <input type="text" class="form-control" maxlength="10" formControlName="contact">
+                            <div *ngIf="profileForm.controls.contact?.invalid && profileForm.controls.contact?.touched"
+                                [ngStyle]="{color: 'red'}">Contact number is not valid</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 my-3">
+                            Occupation
+                        </div>
+                        <div class="form-group col-lg-9 my-3">
+                            <mat-label></mat-label>
+                            <input type="text" class="form-control" placeholder="Select Occupation"
+                                formControlName="searchOccupation" (input)="searchOccupation($event)"
+                                [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let occ of occBySearch " [value]="occ">
+                                    {{occ}}
+                                </mat-option>
+                            </mat-autocomplete>
+                            <!-- <div *ngIf="profileForm.controls.searchOccupation?.invalid && profileForm.controls.searchOccupation?.touched" [ngStyle]="{color: 'red'}">Please enter an occupation</div> -->
+                        </div>
+                    </div>
+                    <div class="row text-center mt-5">
+                        <!-- Choose Profilepic:<input type="file" formControlName="userImage" (change)='onFileChanged($event)'><br><br>  -->
+                        <input type="submit" class="btn submit-btn" [disabled]='profileForm.invalid'
+                            value="Save Profile" (click)="createProfile()">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <!-- change password -->
+    <div class="container box mt-5">
+        <div class="card-body">
+            <p class=" display-6 lead ">Change password</p>
+            <hr>
+        </div>
+        <div class="card-body">
+            <div>
+                <form #changePwdForm="ngForm" (ngSubmit)="changePwd(changePwdForm)">
+                    <p [ngStyle]="{color: 'red'}">Feild in (*) are mandatory</p>
+
+                    <div class="row">
+                        <div class="col-lg-3 my-3">
+                            New Password:
+                        </div>
+                        <div class="form-group col-lg-9 my-3">
+                            <input type="password" name="pwd" ngModel
+                                pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,10}$" required
+                                #password="ngModel"><br><br>
+                            <div *ngIf="password?.invalid && password?.touched" [ngStyle]="{'color':'red'}">password is
+                                not
+                                valid</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3 my-3">
+                            Confirm New Password:
+                        </div>
+                        <div class="form-group col-lg-9 my-3">
+                            <input type="password" name="npwd" ngModel
+                                pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,10}$" required #cpassword="ngModel">
+                            <br><br>
+                            <div *ngIf="cpassword?.invalid && cpassword?.touched" [ngStyle]="{'color':'red'}">password
+                                is
+                                not valid</div>
+                            <div *ngIf="notmatch" [ngStyle]="{'color':'red'}">Password Does Not Match</div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row text-center mt-5">
+                        <!-- Choose Profilepic:<input type="file" formControlName="userImage" (change)='onFileChanged($event)'><br><br>  -->
+                        <input type="submit" value="Confirm" [disabled]="!changePwdForm.valid">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

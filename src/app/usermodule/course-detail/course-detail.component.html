@@ -1,0 +1,182 @@
+<!-- <div class="header-description">
+    <div class="container header">
+        <div class="header-image">
+            <h1 class="display-1 heading">{{courses.courseName}}</h1>
+            <div class="ratings-row">
+                <div class="row1">
+                    <ngx-input-star-rating formControlName="rating" [disabled]="true" [value]="courses.rating"></ngx-input-star-rating>
+                </div>
+                <div class="row1">{{commentcount}} comments</div>
+                <div class="row1">{{feedbackcount}} feedbacks</div>
+            </div>
+            <div class="button">
+                <button type="button" class="btn btn-light btn-lg">Enroll Course</button>
+            </div>
+        </div>
+        <div class="header-image image">
+            <img src="../../../assets/java.png" width="350" height="200">
+        </div>
+    </div>
+</div> -->
+<div class="header-description">
+    <div class="container header">
+        <div class="row">
+            <div class="col col-12 col-md-6">
+                <h1 class="display-1 heading">{{courses.courseName}}</h1>
+                <div class="row ratings-row">
+                    <div class="row">
+                        <ngx-input-star-rating formControlName="rating" [disabled]="true" [value]="courses.rating">
+                        </ngx-input-star-rating>
+                    </div>
+                    <div class="row1 col">{{commentcount}} comments</div>
+                    <div class="row1 col">{{feedbackcount}} feedbacks</div>
+                    <div class="row1 col">Price: {{courses.coursePrice | currency:'INR'}}  </div>
+                  
+                </div>
+                <div class="button" *ngIf="availablevideo">
+                    <button *ngIf="!isenrolled && !isFinished" type="button" class="btn btn-light btn-lg enrol-btn"
+                        (click)="enroll()">Enroll Course</button>
+                    <button *ngIf="isenrolled && !isFinished" type="button" class="btn btn-light btn-lg enrol-btn"
+                        (click)="video(courseid)">Continue</button>
+                    <button *ngIf="isenrolled && isFinished" type="button" class="btn btn-light btn-lg enrol-btn"
+                        (click)="video(courseid)">Finished</button>
+                    <button class="like" (click)="addlike()"> <i *ngIf="!islike" class="far fa-thumbs-up "
+                            aria-hidden="true"></i><i *ngIf="islike"
+                            class="fa fa-thumbs-up"></i>{{courses.likes}}</button>
+                </div>
+                <div class="button" *ngIf="!availablevideo">
+                    <button type="button" class="btn btn-light btn-lg enrol-btn">No videos</button>
+                </div>
+                <div class="row1 col">Last updated on : {{courses.lastupdated}} </div>
+            </div>
+            <div class="col col-12 col-md-6">
+                <img src="../../../assets/java.png" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-section">
+    <br>
+    <br>
+    <div class="container">
+        <div class="about-course" id="about-course">
+            <h1 class="display-5">About the Course</h1>
+            <div class="course-detail">
+                {{courses.courseDesc}}
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container" id="videos">
+        <div class="video-details">
+            <h1 class="display-6 video-heading">What will you learn?</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row video-desc" *ngFor="let v of videos;let index=index">
+            <div class="col-4">
+                <h3>Video</h3>
+                <h3 class="video-number">{{index+1}}</h3>
+            </div>
+            <div class="col-8">
+                <span><i class="fas fa-clock clock"></i></span>
+                <div class="video-content">{{v.videoDesc}}</div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container" id="comment">
+        <div class="video-details">
+            <h1 class="display-6">Comments</h1>
+            <div class="row comments" *ngFor="let c of comments">
+                <div class="col-3">
+                    <div class="btn nameInit text-white">{{nameInit | slice: 0: 2 | uppercase }}</div>
+                </div>
+                <div class="col-7 comment-text">
+                    <div class="name">{{c.user}}</div>
+                    <div class="content">{{c.comment}}</div>
+                    <i *ngIf="c.user===username" class="fas fa-trash-alt me-2" (click)="deletecomment(c.commentId)"></i><i
+                        *ngIf="c.user===username" class="fas fa-edit me-2"
+                        (click)="updatecomment(c.commentId,c.comment)"></i>
+                </div>
+            </div>
+            <div *ngIf="isenrolled" class="row comments">
+                <form class="row g-3" #addComment="ngForm" (ngSubmit)="addCom(addComment)">
+                    <div class="col-1 ">
+                        <i class="far fa-comment-alt fa-2x"></i>
+                    </div>
+                    <input type="hidden" ngModel name="courseId" value=4>
+                    <input type="text" name="courseId" ngModel value="4" style="display: none;" />
+                    <input type="hidden" ngModel name="userId" value=1>
+                    <div class="col-10">
+                        <input type="text" ngModel  name="comment" class="form-control"  #comment="ngModel" required minlength="5">
+                        <div *ngIf="comment.invalid && (comment.dirty || comment.touched)" class="alert alert-danger">
+                            <div *ngIf="comment.errors.required">
+                                Comment is required.
+                            </div>
+                            <div *ngIf="comment.errors.minlength">
+                                Comment must be at least 5 characters long.
+                            </div></div>
+                        </div>
+                        <div class="col-1"><input type="submit" class="btn com-btn px-3" value="" [disabled]="!comment.valid"></div>
+                        <!-- <div *ngIf="!registerForm.controls.name?.invalid && !registerForm.controls.name?.touched" [ngStyle]="{'color':'red'}">name is not valid</div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container" id="feedback">
+        <div class="video-details">
+            <h1 class="display-6">Feedbacks</h1>
+            <div class="row feedback" *ngFor="let f of feedbacks">
+                <div class="card shadow p-3 mb-5 bg-body " style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Feedback</h5>
+                        <h6>{{f.feedback}}</h6>
+                        <p>By : {{f.user}}</p>
+                        <p>
+                            <ngx-input-star-rating [disabled]="true" [value]="f.rating"></ngx-input-star-rating>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isFinished && !isFeedbackGiven">
+                <div class="row">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-outline-primary shadow-lg p-3 mb-5 bg-white " type="button"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal">Add feedback</button>
+                    </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                        #closebutton></button>
+                                </div>
+                                <form [formGroup]="form" (ngSubmit)="addFed($event)">
+                                    <div class="modal-body">
+                                        <ngx-input-star-rating formControlName="rating">
+                                        </ngx-input-star-rating>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Add Feedback</label>
+                                            <textarea class="form-control" formControlName="feedback"
+                                                rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <input type="submit" class="btn btn-primary" value="submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<header>
+	<nav class="navbar navbar-expand-lg myNav fixed-top ">
+		<div class="container">
+				<img width="100em" src="../../../assets/Cybage-e-learning-logo.png" alt=" "
+					class="d-inline-block align-top">
+
+			<button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#fff; font-size:28px;"></i></span>
+			</button>
+
+			
+			<div class="collapse navbar-collapse justify-content-end " id="navbarTogglerDemo01">
+				<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+					<li class="nav-item " *ngIf="(userrole | async) === 'prime'  "><a class="nav-link mx-2 text-white "
+						aria-current="page" routerLink="/locked-notification"><i class="fas fa-unlock"></i><span class="badge rounded-pill badge-notification bg-danger myBadge">{{len1}}</span></a>
+					</li>
+					<li class="nav-item "><a class="nav-link mx-2 text-white"  aria-current="page"
+							(click)="reg()" *ngIf="(userrole | async) === null" ><i
+								class="fas fa-sign-in-alt fa-lg"></i></a>
+					</li>
+					<li class="nav-item dropdown " *ngIf="(userrole | async) === 'prime' || (userrole | async) === 'admin'">
+						<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="fas fa-user-circle me-1"></i>{{username | titlecase }}
+						</a>
+
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li  *ngIf="(userrole | async) === 'prime'"><a class="dropdown-item" routerLink="/changepassword"><i class="fas fa-cog me-1"></i>Change Password</a>
+							</li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							
+							<li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;"><i
+								class="fas fa-sign-out-alt me-1"></i>Sign Out</a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="nav-item dropdown " *ngIf="(userrole | async) === 'user'">
+						<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="fas fa-user-circle me-1"></i>{{username  | titlecase}}
+						</a>
+
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" routerLink="/createprofile"><i class="fas fa-user-cog me-2"></i>Edit Profile</a>
+							</li>
+							
+							<li><a class="dropdown-item" routerLink="/user"><i class="fas fa-graduation-cap me-2"></i>My
+									Courses</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" routerLink="/help"><i class="fas fa-question me-1"></i> Help</a></li>
+							<li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;"><i
+										class="fas fa-sign-out-alt me-1"></i>Sign Out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+<div class="mt-5"></div>
+<br>

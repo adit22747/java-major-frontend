@@ -1,0 +1,51 @@
+$theme-color: #3E416D;
+$font-color: #29303B;
+$sidebar-theme: #EDEFF0;
+$font-faimily: gotham-rounded,helvetica neue,helvetica !important;
+.header-color{
+    background-color: #D7EEF7;
+    height: 200px;
+    position: relative;
+}
+.welcome-header{
+    position: absolute;
+    top:50%;
+  /*   margin-bottom: 2%; */
+    font-size: 60px;
+}
+.myitems{
+    text-align: center;
+    text-decoration: none;
+    color: $font-color;
+}
+.myitems:hover{
+    color: $theme-color;
+}
+.myLink{
+    text-align: center;
+    height: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.myLink:hover{
+    color: lighten($font-color, 20);
+    border-bottom: 4px solid $theme-color;
+    font-weight: bold;
+}
+a{
+    cursor: pointer;
+    color: $theme-color;
+    
+}
+.err-txt{
+    color: red;
+}
+.myBtn{
+    border: 1px solid $theme-color;
+    background-color: $theme-color;
+    color: white;
+  }
+  .myBtn:hover{
+    background-color: lighten($theme-color, 5);
+    color: white;
+  }

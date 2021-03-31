@@ -1,0 +1,29 @@
+$font-color: #29303B;
+$theme-color: #3E416D;
+$font-faimily: gotham-rounded,helvetica neue,helvetica !important;
+$sidebar-theme: #EDEFF0;
+.myFonts{
+    font-family: $font-faimily
+}
+.mainImg{
+    background: linear-gradient(140deg, $theme-color 60%, $sidebar-theme 60%);
+    border-radius: 200px;
+}
+.myBtn{
+    border: 1px solid $theme-color;
+    background-color: $theme-color;
+    color: white;
+  }
+  .myBtn:hover{
+    background-color: lighten($theme-color, 5);
+    color: white;
+  }
+  .seperateRow{
+      background-color: darken($sidebar-theme, 5);
+  }
+  .seperateContainer{
+background-image: radial-gradient(ellipse farthest-corner at -30% 10%, $sidebar-theme 20%, darken($sidebar-theme, 1) 80%, darken($sidebar-theme, 5) 20%);
+  }
+  .headingAbout{
+    color: darken($theme-color, 10);
+  }

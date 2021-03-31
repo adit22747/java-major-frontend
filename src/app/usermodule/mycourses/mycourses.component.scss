@@ -1,0 +1,40 @@
+$theme-color: #3E416D;
+$font-color: #29303B;
+  
+$sidebar-theme: #edeff0;
+$font-faimily: gotham-rounded,helvetica neue,helvetica !important;
+.header-color{
+    background-color: #d7eef7;
+    height: 200px;
+    position: relative;
+}
+.welcome-header{
+    position: absolute;
+    top:50%;
+  /*   margin-bottom: 2%; */
+   
+
+}
+
+.myitems{
+    text-align: center;
+    text-decoration: none;
+}
+.myitems:hover{
+    color: $theme-color;
+}    
+.myLink{
+    text-align: center;
+    height: 40px;
+    margin-top: 20px;
+}
+.myLink:hover{
+    border-bottom: 4px solid $theme-color;
+}
+.myBackground{
+    background-color: $sidebar-theme;
+}
+body{
+    background-color: $sidebar-theme;
+}
+

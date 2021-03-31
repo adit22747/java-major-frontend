@@ -1,0 +1,87 @@
+<div class="container myFonts my-5">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-6 headingFonts">
+                    <h2>New Course</h2>
+                </div>
+            </div>
+            <div class=" px-5 py-5 formDiv">
+                <form [formGroup]="courseForm" enctype="multipart/form-data">
+
+                    <div class="row">
+                        <div class="col-lg-2">Select Category:</div>
+                        <div class="col-lg-8"><select formControlName="categoryId" class="form-select"
+                                [ngClass]="{'is-invalid':courseForm.controls.categoryId.touched && courseForm.controls.categoryId.errors}">
+                                <option *ngFor="let c of categories" [ngValue]="c[1]" (click)="selectedCategory(c[1])">
+                                    {{ c[0] }}</option>
+                            </select>
+                            <div>
+                                <div
+                                    *ngIf="courseForm.controls.categoryId.touched && courseForm.controls.categoryId.errors">
+                                    <div *ngIf="courseForm.controls.categoryId.errors.required">CategoryName required
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div><br>
+
+                    <div class="row">
+                        <div class="col-lg-2">Course Name:</div>
+                        <div class="col-lg-8"><input type="text" formControlName="courseName" class="form-control">
+                        </div>
+                        <div *ngIf="courseForm.controls.courseName?.invalid && courseForm.controls.courseName?.touched"
+                            [ngStyle]="{'color' : 'red'}" required>Please enter valid Course-Name</div>
+                    </div><br>
+
+                    <div class="row">
+                        <div class="col-lg-2">Course Description:</div>
+                        <div class="col-lg-8"><textarea rows="5" cols="10" formControlName="courseDesc"
+                                class="form-control"></textarea></div>
+                        <div *ngIf="courseForm.controls.courseName?.invalid && courseForm.controls.courseName?.touched"
+                            [ngStyle]="{'color' : 'red'}" required>Please enter 10 characters at minimum</div>
+                    </div> <br>
+
+                    <div class="row">
+                        <div class="col-lg-2">Course Logo:</div>
+                        <div class="col-lg-8"><input type="file" multiple accept="image/*" formControlName="courseLogo"
+                                class="form-control" (change)="readUrl($event)"></div>
+                        <div class="row mt-3">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6">
+                                <div class="imgPreview"><img [src]="url" class="img-fluid" alt="none selected"></div>
+                                <div *ngIf="courseForm.controls.courseLogo?.invalid && courseForm.controls.courseLogo?.touched"
+                                    [ngStyle]="{'color' : 'red'}" required>Please select valid image file</div>
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <div class="row">
+                        <div class="col-lg-2">Course Price:</div>
+                        <div class="col-lg-8"><input type="number" formControlName="coursePrice" class="form-control">
+                            <div *ngIf="courseForm.controls.coursePrice?.invalid && courseForm.controls.coursePrice?.touched"
+                                [ngStyle]="{'color' : 'red'}" required>Please enter valid price for given course</div>
+                        </div>
+                    </div><br>
+
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8"><input type="hidden" formControlName="likes" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 "><input type="submit" value="Add course" class="btn myBtn"
+                                (click)="addCourse()" [disabled]="!courseForm.valid"></div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

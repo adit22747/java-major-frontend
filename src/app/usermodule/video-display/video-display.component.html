@@ -1,0 +1,48 @@
+<div class="container-fluid myFonts">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="box ">
+                <div class="card-text px-2 py-2 text-center text-dark title">{{courseTitle | uppercase}}</div>
+                <div *ngFor="let v of videoList ; let cardIndex = index" class="my-2">
+                    <div class="card-header text-dark text-center pt-2 pb-0 ">
+                        <h5>{{v.videoName | titlecase}}</h5>
+                    </div>
+                    <div class="card-text px-2 ">
+                        <p><em>{{v.videoDesc}}</em></p>
+                    </div>
+                    <div class="card-text px-2" *ngIf="!isCompleted">
+                        <!-- <div> {{videoStatus[cardIndex]}}</div> -->
+                        <div *ngIf="videoStatus[cardIndex]==='Watched'" class="btn btn-outline-success float-end mx-3">
+                            <i class="fas fa-check-circle text-success fa-lg"></i></div>
+                        <div *ngIf="videoStatus[cardIndex]==='Not Watched'"
+                            class="btn btn-outline-warning float-end mx-3"><i
+                                class=" fas fa-circle-notch text-warning fa-lg"></i></div>
+                    </div>
+                    <a class="btn btn-sm play-btn mx-3 " (click)="fetch(v.videoPath, v.videoId)"
+                        value="{{v.videoPath}}"><i class="fas fa-play-circle fa-2x"></i></a>
+                    <div *ngIf="isCompleted" class="card-text btn btn-outline-success float-end mx-3"> <i
+                            class="fas fa-tasks text-success fa-lg "></i></div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 my-2">
+            <video src="../assets/{{videourl}}" controls id="video" #video scrolling="no"></video>
+            <div class="row">
+                <div class="col-lg-5">
+                    <button (click)="doublepreviousplay()" class="btn reg-btn "><i
+                            class="fas fa-tachometer-alt mx-1"></i>Speed (2x)<i class="fas fa-backward"></i></button>
+                </div>
+                <div class="col-lg-3">
+                    <button (click)="normalplayback()" class="btn reg-btn "><i
+                            class="fas fa-tachometer-alt mx-1"></i>Normal <i class="fas fa-play"></i></button>
+                </div>
+                <div class="col-lg-4">
+                    <button (click)="doubleplayback()" class="btn reg-btn float-end"><i
+                            class="fas fa-tachometer-alt mx-1"></i>Speed (2x)<i
+                            class="fas fa-forward mx-1"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

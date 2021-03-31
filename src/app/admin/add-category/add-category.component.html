@@ -1,0 +1,58 @@
+
+<div class="container myFonts my-5">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-6 headingFonts">
+                    <h2>New Category</h2>
+                </div>
+            </div>
+            <div class=" px-5 py-5 formDiv">
+                <form [formGroup]="categoryForm" enctype="multipart/form-data">
+
+                    <div class="row">
+                        <div class="col-lg-2">Category Name:</div>
+                        <div class="col-lg-8"><input type="text" formControlName="categoryName" class="form-control">
+                            <div *ngIf="categoryForm.controls.categoryName?.invalid && categoryForm.controls.categoryName?.touched"
+                                [ngStyle]="{'color' : 'red'}" required>Please enter valid Category-Name</div>
+                        </div>
+                    </div><br>
+
+                    <div class="row">
+                        <div class="col-lg-2">Category Description:</div>
+                        <div class="col-lg-8"><textarea rows="5" cols="10" formControlName="categoryDesc"
+                                class="form-control"></textarea>
+                            <div *ngIf="categoryForm.controls.categoryDesc?.invalid && categoryForm.controls.categoryDesc?.touched"
+                                [ngStyle]="{'color' : 'red'}" required>Please enter 10 characters at minimum</div>
+                        </div>
+                    </div> <br>
+
+                    <div class="row">
+                        <div class="col-lg-2">Category Logo:</div>
+                        <div class="col-lg-8"><input type="file" multiple accept="image/*"
+                                formControlName="categoryLogo" class="form-control" (change)="readUrl($event)"></div>
+                        <div class="row mt-3">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6">
+                                <div class="imgPreview"><img [src]="url" class="img-fluid" alt="none selected">
+
+                                </div>
+                                <div *ngIf="categoryForm.controls.categoryLogo?.invalid && categoryForm.controls.categoryLogo?.touched"
+                                    [ngStyle]="{'color' : 'red'}" required>Please select valid image file</div>
+                            </div>
+                        </div>
+
+                    </div><br>
+
+                    <div class="row ">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 "><input type="submit" value="Add category" class="btn myBtn"
+                                (click)="addCategory()" [disabled]="!categoryForm.valid"></div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

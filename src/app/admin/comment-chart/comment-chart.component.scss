@@ -1,0 +1,36 @@
+$sidebar-theme: #edeff0;
+$theme-color: #3e416d;
+$font-color: #29303b;
+$font-faimily: gotham-rounded,helvetica neue,helvetica !important;  
+.myFonts{
+  font-family: $font-faimily;
+  color:$font-color;
+}
+.chartBox{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    color: $font-color;
+}
+.headingFonts{
+    color:$theme-color;
+}
+.myBtn{
+    background-color: $theme-color;
+    border: 1px $theme-color;
+    color: white;
+  }
+  a{
+    text-decoration: none;
+  }
+  .navigateButtons{
+    color: lighten($theme-color, 10);
+  }
+  .navigateCards{
+    // transform: scale(1.05);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+  }
+  .navigateCards:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+  }

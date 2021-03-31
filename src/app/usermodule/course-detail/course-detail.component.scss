@@ -1,0 +1,182 @@
+$font-color: #29303B;
+$theme-color: #3E416D;
+$font-faimily: gotham-rounded,helvetica neue,helvetica !important;
+$sidebar-theme: #EDEFF0;
+.header-description{
+    height: 35rem;
+    background-image:
+      linear-gradient(
+        to left, 
+         lighten($theme-color, 20), darken($theme-color, 10)
+      );
+      font-family:$font-faimily;
+      //#9EA4FF, #464DB3  
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+    padding:5% 5%;
+    cursor: pointer;
+}
+.heading{
+    padding-top: 10%;
+    color:$font-color;
+    color: white;
+}
+.ratings-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 16px;
+}
+.row1{
+    padding: 5% 5%;
+    cursor: pointer;
+    color: white;
+}  
+.button{
+    margin-top: 10px;
+    padding: 20px;
+} 
+.enrol-btn:hover{
+background-color: darken($theme-color, 10);
+color: white;
+}
+.myLink{
+    height: 40px;
+    margin-top: 2%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.main-section{
+background-color: $sidebar-theme;
+font-family:$font-faimily;
+}
+.myLink:hover{
+    border-bottom: 4px solid $theme-color;
+    font-weight: bold;
+}
+.myitems{
+    text-align: center;
+    text-decoration: none;
+    color: $font-color;
+}
+.myitems:hover{
+    color: $theme-color;
+}   
+.course-detail{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.video-details{
+    margin-top: 20px;
+    justify-content: center;
+    text-align: left;
+}
+.video-heading {
+    text-align: center;
+}
+.video-desc{
+    margin-top: 40px;
+}
+.video-number{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+i.clock{
+    font-size:40px;
+    color:#e6aa05;
+}
+.nav-course{
+    justify-content: center;
+}
+.video-content{
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 70px;
+}
+[data-initials]:before {
+    background: $theme-color;
+    color: white;
+    opacity: 1; 
+    content: attr(data-initials); 
+    display: inline-block; 
+    font-weight: bold; 
+    border-radius: 50%; 
+    vertical-align: middle; 
+    margin-right: 0.5em; 
+    width: 50px; 
+    height: 50px; 
+    line-height: 50px; 
+    text-align: center; 
+    }
+.comments{
+    margin-top:50px;
+}
+ .com-btn{
+    background-image: url('../../../assets/com_icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.com-btn:hover{
+    background-color: lighten($theme-color,30);    
+}
+.like{
+    margin-left: 10%;
+    border-radius: 70%;
+    border-color: white;
+    padding: 0.5em 0.6em;
+    font-size: 18px;
+    cursor: pointer;   
+}
+.like:hover{
+    background-color: darken($theme-color, 10);
+    color: white;
+}
+.comment-text .name{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.comment-text .content{
+    margin-bottom: 10px;
+}
+.feedback-card{
+    margin: 1%;
+    text-align: left;
+    width: 18rem;
+}
+div.card{
+    margin-right: 100px;
+    border-radius: 15px;
+}
+.rating{
+    text-align: center;
+}
+.feedback-card-container{
+    justify-content: center;
+}
+a{
+    color: lighten($font-color, 20);
+    font-family: $font-faimily;
+}
+a:hover{
+    font-weight: bold;
+}
+.fb-btn:hover{
+    background-color: darken($theme-color, 10);
+    color: white;
+    border-color: white;
+}
+.fb-btn{
+    background-color:lighten($theme-color, 10);
+    font-family: $font-faimily;
+    color: white;
+    border-color: lighten($font-color, 10);
+}
+.nameInit{
+    background-color: $theme-color;
+    border-radius: 20px;
+}

@@ -1,0 +1,17 @@
+$sidebar-theme: #edeff0;
+$theme-color: #3e416d;
+$font-color: #29303b;
+$font-faimily: gotham-rounded,helvetica neue,helvetica !important;
+
+.userLogRow{
+    margin: 30vh 20vw 0vh 35vw;
+    text-align: center;
+   
+}
+.logsCard{
+    border: 1px solid $theme-color;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+.cardText{
+    color: $theme-color;
+}

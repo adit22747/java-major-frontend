@@ -1,0 +1,23 @@
+<!-- <button (click)="view(4)">view course</button> -->
+<div class="container-fluid myFonts">
+    <div class="row float-end">
+    </div>
+    <div class="row cat">
+        <div class="col-lg-2"></div>
+        <div class="card mx-3 myCards" style="width: 18rem;" *ngFor="let c of courses">
+            <div class="col-lg-6">
+                <!-- <div class="col-lg-2"></div> -->
+                <img src="{{c.courselogo}}" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{c.courseName}}</h5>
+                    <p class="card-text">{{c.courseDesc}}</p>
+                    <p>{{c.coursePrice}}</p>
+                    <p>
+                        <ngx-input-star-rating [disabled]="true" [value]="c.rating"></ngx-input-star-rating>  
+                    </p>
+                    <button class="btn btn-primary me-4" (click)="view(c.courseId)">view course</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

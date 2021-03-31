@@ -1,0 +1,32 @@
+$theme-color: #3E416D;
+$font-color: #29303B;
+$sidebar-theme: #EDEFF0;
+$font-faimily: gotham-rounded,helvetica neue,helvetica !important;
+.header-color{
+    background-color: $sidebar-theme;
+    height: 20vh;
+}
+.welcome-header{
+    padding-top: 10vh;
+    color: $theme-color;
+}
+.box{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    color: $font-color;  
+}
+.submit-btn{
+    background-color: $theme-color;
+    color: white;
+}
+.reg-btn{
+    background-color: lighten($theme-color, 20);
+    color: white;
+}
+.reg-btn:hover{
+    background-color: $theme-color;
+}
+.myFonts{
+    font-family: $font-faimily;
+}
