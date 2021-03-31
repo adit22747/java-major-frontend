@@ -33,7 +33,7 @@
             <div class="col-lg-3" *ngFor="let card of item; let cardIndex = index">
               <div class="card mx-3 my-3 categorycards">
                 <div class="col-lg-12">
-                  <img src="{{card.categoryLogo}}" class="card-img-top img-fluid catImg" alt="...">
+                  <img src="../../../assets/{{card.categoryLogo}}" class="card-img-top img-fluid catImg" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">{{card.categoryName | titlecase}}</h5>
                     <p class="card-text text-truncate">{{card.categoryDesc}}</p>
