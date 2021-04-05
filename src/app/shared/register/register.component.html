@@ -151,6 +151,9 @@
                 <div *ngIf="wpassword && !isLocked" class="err-txt text-center">
                     <hr> Oops! Wrong Password! <br> Number of attempts left: ({{3-failedattempts}})
                 </div>
+                <div *ngIf="apasswordWrong" class="err-txt text-center">
+                    <hr> Oops! Wrong Password! 
+                </div>
                 <div *ngIf="wusername && !isLocked" class="err-txt text-center">Username Not Found</div>
             </div>
         </div>

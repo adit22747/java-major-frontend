@@ -50,6 +50,7 @@ export class UserhomeComponent implements OnInit {
     // get cetegories
     this.uservice.getECourses(sessionStorage.getItem("userId")).subscribe((x) => {
       this.EnrolledCourseList = x;
+      
       if(this.EnrolledCourseList.length === 0){
         this.enrolledCourses = true
       }
@@ -57,6 +58,8 @@ export class UserhomeComponent implements OnInit {
     })
     this.uservice.getFCourses(sessionStorage.getItem("userId")).subscribe((x) => {
       this.FinishedCourseList = x
+
+      
       if(this.FinishedCourseList.length === 0){
         this.finishedCourses = true
       }

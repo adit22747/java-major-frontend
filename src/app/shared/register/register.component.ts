@@ -28,8 +28,8 @@ export class RegisterComponent implements OnInit {
     })
 
     this.loginForm = new FormGroup({
-      username: new FormControl("adit7"),
-      password: new FormControl("Aditpatel7")
+      username: new FormControl(""),
+      password: new FormControl("")
 
     })
 
@@ -182,6 +182,8 @@ export class RegisterComponent implements OnInit {
 
               }
               else{
+            
+                
                 this.apasswordWrong=true
               }
 

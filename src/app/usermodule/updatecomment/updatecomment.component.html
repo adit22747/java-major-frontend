@@ -1,7 +1,6 @@
 <div>
-    <input matInput required [(ngModel)]="comment" placeholder="Enter comment">
+    <input matInput required [(ngModel)]="comment" placeholder="Enter comment" class="form-control">
 </div>
-<div>
-    <button mat-raised-button color="primary" (click)="updatecomment()">Update</button>
-  
+<div class="my-2 text-center">
+    <button class="btn myBtn" (click)="updatecomment()">Update</button>
 </div>

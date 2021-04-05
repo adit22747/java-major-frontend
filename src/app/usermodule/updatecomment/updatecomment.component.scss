@@ -1,0 +1,10 @@
+$theme-color: #3E416D;
+.myBtn{
+    border: 1px solid $theme-color;
+    background-color: $theme-color;
+    color: white;
+  }
+  .myBtn:hover{
+    background-color: lighten($theme-color, 5);
+    color: white;
+  }

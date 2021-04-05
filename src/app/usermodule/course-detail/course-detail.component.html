@@ -50,7 +50,7 @@
                 <div class="row1 col">Last updated on : {{courses.lastupdated}} </div>
             </div>
             <div class="col col-12 col-md-6">
-                <img src="../../../assets/java.png" class="img-fluid">
+                <img width="500px" src="../../../assets/{{courses.courseLogo}}" class="img-fluid">
             </div>
         </div>
     </div>
@@ -91,7 +91,7 @@
             <h1 class="display-6">Comments</h1>
             <div class="row comments" *ngFor="let c of comments">
                 <div class="col-3">
-                    <div class="btn nameInit text-white">{{nameInit | slice: 0: 2 | uppercase }}</div>
+                    <div class="btn nameInit text-white">U</div>
                 </div>
                 <div class="col-7 comment-text">
                     <div class="name">{{c.user}}</div>
@@ -141,41 +141,44 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="isFinished && !isFeedbackGiven">
-                <div class="row">
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn btn-outline-primary shadow-lg p-3 mb-5 bg-white " type="button"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal">Add feedback</button>
-                    </div>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                                        #closebutton></button>
-                                </div>
-                                <form [formGroup]="form" (ngSubmit)="addFed($event)">
-                                    <div class="modal-body">
-                                        <ngx-input-star-rating formControlName="rating">
-                                        </ngx-input-star-rating>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">Add Feedback</label>
-                                            <textarea class="form-control" formControlName="feedback"
-                                                rows="3"></textarea>
+            <div *ngIf="isFinished ">
+               
+                    <div class="row">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn myBtn shadow-lg p-3 mb-5 " type="button"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">Add Feedback</button>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                            #closebutton></button>
+                                    </div>
+                                    <form [formGroup]="form" (ngSubmit)="addFed($event)">
+                                        <div class="modal-body">
+                                            <ngx-input-star-rating formControlName="rating">
+                                            </ngx-input-star-rating>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Add Feedback</label>
+                                                <textarea class="form-control" formControlName="feedback"
+                                                    rows="3"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <input type="submit" class="btn btn-primary" value="submit">
-                                    </div>
-                                </form>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <input type="submit" class="btn submit-btn" value="Submit">
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                   
                 </div>
+
             </div>
         </div>
     </div>

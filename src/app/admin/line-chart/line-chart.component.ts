@@ -67,6 +67,8 @@ export class LineChartComponent implements OnInit {
   getGraph() {
     this.courseName = this.courses.map((data: { courseName: any; }) => data.courseName);
     this.avgrating = this.courses.map((data: { avgrating: any; }) => data.avgrating);
+    console.log(this.avgrating);
+    
     this.lineChartLabels = this.courseName;
     this.lineChartData = [{ data: this.avgrating, label: ' Ratings' }];
   }

@@ -3,7 +3,7 @@ $theme-color: #3E416D;
 $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
 $sidebar-theme: #EDEFF0;
 .header-description{
-    height: 35rem;
+    height: 40rem;
     background-image:
       linear-gradient(
         to left, 
@@ -180,3 +180,20 @@ a:hover{
     background-color: $theme-color;
     border-radius: 20px;
 }
+.myBtn{
+    border: 1px solid $theme-color;
+    color: $theme-color;
+  }
+  .myBtn:hover{
+    background-color: $theme-color;
+    color: white;
+  }
+  .submit-btn{
+    border: 1px solid $theme-color;
+    background-color: $theme-color;
+    color: white;
+  }
+  .submit-btn:hover{
+    background-color: lighten($theme-color, 5);
+    color: white;
+  }

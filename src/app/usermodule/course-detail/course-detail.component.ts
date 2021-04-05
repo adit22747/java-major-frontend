@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { DialogBoxComponent } from 'src/app/admin/dialog-box/dialog-box.component';
 import { AuthenticateService } from 'src/app/authenticate.service';
 import { UserService } from 'src/app/user.service';
 import { AlertmodelComponent } from '../alertmodel/alertmodel.component';
@@ -28,7 +29,7 @@ export class CourseDetailComponent implements OnInit {
   islike: any;
   isenrolled: any;
   isProfileCreated: any;
-  isFeedbackGiven:any;
+  isFeedbackGiven:boolean=false;
   isFinished: any;
   username = sessionStorage.getItem("username")
   buttoncomment: boolean[] = []
@@ -95,7 +96,7 @@ export class CourseDetailComponent implements OnInit {
     })
     //is feedback given
     this.us.isFeedbackGiven(this.userid,this.courseid).subscribe((x)=>{
-      this.isFeedbackGiven=x
+      this.isFeedbackGiven=Boolean(x)
     })
     //add comments
     this.addComment = new FormGroup({
@@ -171,11 +172,20 @@ export class CourseDetailComponent implements OnInit {
   video(courseid) {
     this.router.navigate(['/videolist'], { queryParams: { courseid: btoa(courseid) } })
   }
+
   //deletecomment
   deletecomment(commentid) {
-    this.us.deletecomment(commentid).subscribe({
-      next: () => {
-        this.ngOnInit()
+    let dialogref=  this.dialog.open(DialogBoxComponent, {
+      width: '250px',
+      data: {id:commentid}
+    });
+    dialogref.afterClosed().subscribe((result)=>{
+      if(result!=undefined && result!=null && result==true)
+      {
+        this.us.deletecomment(commentid).subscribe((data)=>
+        {
+          this.ngOnInit()
+        })
       }
     })
   }
